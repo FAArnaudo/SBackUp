@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace SBuckUp.ViewModels
+namespace SBackUp.ViewModels
 {
     public class ControlPanelViewModel : ViewModelBase
     {

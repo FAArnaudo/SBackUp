@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace SBuckUp.Views
+namespace SBackUp.Views
 {
     /// <summary>
     /// Lógica de interacción para TaskView.xaml
