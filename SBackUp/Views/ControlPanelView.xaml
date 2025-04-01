@@ -48,7 +48,48 @@
                            Width="150" Height="470"
                            HorizontalAlignment="Left">
                     <StackPanel x:Name="SP_Buttons"
-                                Background="#34495E"></StackPanel>
+                                Background="#34495E">
+                        <Button Name="CreateTask"
+                                Width="120" Height="50"
+                                HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0"
+                                Background="#34495E" BorderBrush="#5D6D7E"
+                                Command="{Binding}">
+                            <TextBlock Foreground="#ECF0F1" FontSize="15">
+                                Crear
+                                <LineBreak/>
+                                Back UP
+                            </TextBlock>
+                        </Button>
+                        <Button Name="EditTask"
+                                Width="120" Height="50"
+                                HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0"
+                                Background="#34495E" BorderBrush="#5D6D7E"
+                                Command="{Binding}">
+                            <TextBlock Foreground="#ECF0F1" FontSize="15">
+                                Editar
+                            </TextBlock>
+                        </Button>
+                        <Button Name="DeleteTask"
+                                Width="120" Height="50"
+                                HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0"
+                                Background="#34495E" BorderBrush="#5D6D7E"
+                                Command="{Binding}">
+                            <TextBlock Foreground="#ECF0F1" FontSize="15">
+                                Eliminar
+                            </TextBlock>
+                        </Button>
+                        <Button Name="InitTask"
+                                Width="120" Height="50"
+                                HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0"
+                                Background="#34495E" BorderBrush="#5D6D7E"
+                                Command="{Binding}">
+                            <TextBlock Foreground="#ECF0F1" FontSize="15">
+                                Ejecutar
+                                <LineBreak/>
+                                Back Up
+                            </TextBlock>
+                        </Button>
+                    </StackPanel>
                 </DockPanel>
                 <!--#endregion-->
                 <!--#region RIGHT PANEL-->

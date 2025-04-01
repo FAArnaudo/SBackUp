@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SBackUp.ViewModels"
         xmlns:viewModel="clr-namespace:SBackUp.ViewModels"
         mc:Ignorable="d"
-        Title="Back Up" Width="600" Height="550">
+        Title="Back Up" Width="600" Height="560">
 
     <Window.DataContext>
         <viewModel:TaskViewModel></viewModel:TaskViewModel>
@@ -14,7 +14,7 @@
 
     <Grid x:Name="GTask" Background="#1d537e">
         <StackPanel Margin="5" Background="#3A6EA5">
-            <TextBlock Text="Configuración Back Up" FontSize="24" FontWeight="Bold"
+            <TextBlock Text="Configuración Back Up" FontSize="26" FontWeight="Bold"
                        HorizontalAlignment="Center" Foreground="#ced4dc"
                        Margin="5"/>
 
@@ -77,11 +77,14 @@
                         <TextBlock Text="Hora:" Width="120" VerticalAlignment="Center" FontSize="14" Foreground="White"/>
                         <StackPanel Orientation="Horizontal"
                                     IsEnabled="{Binding IsHourEnable}">
-                            <TextBox Height="25" Width="30" Text="{Binding Hours, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox Height="25" Width="30"
+                                     Text="{Binding Hours, UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBlock Text=":" VerticalAlignment="Center" FontSize="14" Foreground="White"/>
-                            <TextBox Height="25" Width="30" Text="{Binding Minutes, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox Height="25" Width="30"
+                                     Text="{Binding Minutes, UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBlock Text=":" VerticalAlignment="Center" FontSize="14" Foreground="White"/>
-                            <TextBox Height="25" Width="30" Text="{Binding Seconds, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox Height="25" Width="30"
+                                     Text="{Binding Seconds, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </DockPanel>
 
