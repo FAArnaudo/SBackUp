@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         xmlns:local="clr-namespace:SBackUp"
         mc:Ignorable="d"
         WindowStyle="None"
@@ -43,63 +44,89 @@
             <!--#endregion-->
             <!--#region BOT PANEL-->
             <Grid x:Name="GBotPanel">
-                <!--#region LEFT PANEL-->
+
                 <DockPanel x:Name="DP_LateralPanel"
-                           Width="150" Height="470"
+                           Width="750" Height="470"
                            HorizontalAlignment="Left">
+                    <!--#region LEFT PANEL-->
                     <StackPanel x:Name="SP_Buttons"
-                                Background="#34495E">
-                        <Button Name="CreateTask"
+                                Width="150" Height="470"
+                                Background="#2C3E50"
+                                HorizontalAlignment="Left">
+
+                        <Button Style="{StaticResource menuButton}"
+                                Tag="{StaticResource color1}"
+                                Name="CreateTask"
                                 Width="120" Height="50"
                                 HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0"
                                 Background="#34495E" BorderBrush="#5D6D7E"
                                 Command="{Binding}">
-                            <TextBlock Foreground="#ECF0F1" FontSize="15">
-                                Crear
-                                <LineBreak/>
-                                Back UP
-                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="Add"
+                                              Style="{StaticResource menuButtonIcon}"></fa:IconImage>
+                                <TextBlock
+                                           Style="{StaticResource menuButtonText}">
+                                    Crear
+                                    <LineBreak></LineBreak>
+                                    Back Up
+                                </TextBlock>
+                            </StackPanel>
                         </Button>
-                        <Button Name="EditTask"
+                        <Button Style="{StaticResource menuButton}"
+                                Name="EditTask"
                                 Width="120" Height="50"
                                 HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0"
                                 Background="#34495E" BorderBrush="#5D6D7E"
                                 Command="{Binding}">
-                            <TextBlock Foreground="#ECF0F1" FontSize="15">
-                                Editar
-                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="Edit"
+                                              Style="{StaticResource menuButtonIcon}"></fa:IconImage>
+                                <TextBlock Text="Editar"
+                                           Style="{StaticResource menuButtonText}"/>
+                            </StackPanel>
                         </Button>
-                        <Button Name="DeleteTask"
+                        <Button Style="{StaticResource menuButton}"
+                                Name="InitTask"
                                 Width="120" Height="50"
                                 HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0"
                                 Background="#34495E" BorderBrush="#5D6D7E"
                                 Command="{Binding}">
-                            <TextBlock Foreground="#ECF0F1" FontSize="15">
-                                Eliminar
-                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="PlayCircle"
+                                              Style="{StaticResource menuButtonIcon}"></fa:IconImage>
+                                <TextBlock Style="{StaticResource menuButtonText}">
+                                    Iniciar
+                                    <LineBreak></LineBreak>
+                                    ahora
+                                </TextBlock>
+                            </StackPanel>
                         </Button>
-                        <Button Name="InitTask"
+                        <Button Style="{StaticResource menuButton}"
+                                Name="DeleteTask"
                                 Width="120" Height="50"
                                 HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,8,0,0"
                                 Background="#34495E" BorderBrush="#5D6D7E"
                                 Command="{Binding}">
-                            <TextBlock Foreground="#ECF0F1" FontSize="15">
-                                Ejecutar
-                                <LineBreak/>
-                                Back Up
-                            </TextBlock>
+                            <StackPanel Orientation="Horizontal">
+                                <fa:IconImage Icon="Remove"
+                                              Style="{StaticResource menuButtonIcon}"></fa:IconImage>
+                                <TextBlock Style="{StaticResource menuButtonText}">
+                                    Eliminar
+                                </TextBlock>
+                            </StackPanel>
                         </Button>
                     </StackPanel>
-                </DockPanel>
-                <!--#endregion-->
-                <!--#region RIGHT PANEL-->
-                <DockPanel x:Name="DP_DataPanel"
-                           Width="600" Height="470"
-                           HorizontalAlignment="Right">
+                    <!--#endregion-->
+                    <!--#region RIGHT PANEL-->
                     <Grid x:Name="G_PanelView"
-                          Background="#778899"></Grid>
+                          Width="600" Height="470"
+                          Background="#778899"
+                          HorizontalAlignment="Right">
+                        <ContentControl Content=""
+                                        Margin="10"></ContentControl>
+                    </Grid>
+                    <!--#endregion-->
                 </DockPanel>
-                <!--#endregion-->
             </Grid>
             <!--#endregion-->
         </StackPanel>

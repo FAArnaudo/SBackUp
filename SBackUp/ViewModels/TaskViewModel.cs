@@ -172,7 +172,7 @@ namespace SBackUp.ViewModels
             {
                 if (Regex.IsMatch(Source, regexWindows) && Regex.IsMatch(Destiny, regexWindows))
                 {
-                    if (TaskPerioricity != null)
+                    if (TaskPerioricity != null && VerificarPeriodo())
                     {
                         canExecute = true;
                     }
@@ -223,30 +223,73 @@ namespace SBackUp.ViewModels
             {
                 case "Manual":
                     IsHourEnable = false;
+                    Hours = Minutes = Seconds = null;
                     IsWeeklyEnable = false;
+                    Weekly = null;
                     IsMonthlyEnable = false;
+                    Monthly = null;
                     break;
                 case "Diario":
                     IsHourEnable = true;
                     IsWeeklyEnable = false;
+                    Weekly = null;
                     IsMonthlyEnable = false;
+                    Monthly = null;
                     break;
                 case "Semanal":
                     IsHourEnable = true;
                     IsWeeklyEnable = true;
                     IsMonthlyEnable = false;
+                    Monthly = null;
                     break;
                 case "Mensual":
                     IsHourEnable = true;
                     IsWeeklyEnable = false;
+                    Weekly = null;
                     IsMonthlyEnable = true;
                     break;
                 default:
                     IsHourEnable = false;
+                    Hours = Minutes = seconds = null;
                     IsWeeklyEnable = false;
+                    Weekly = null;
                     IsMonthlyEnable = false;
+                    Monthly = null;
                     break;
             }
+        }
+        private bool VerificarPeriodo()
+        {
+            bool isOk = false;
+
+            switch (TaskPerioricity)
+            {
+                case "Manual":
+                    isOk = true;
+                    break;
+                case "Diario":
+                    if (Hours != null && Minutes != null && Seconds != null)
+                    {
+                        isOk = true;
+                    }
+                    break;
+                case "Semanal":
+                    if (Hours != null && Minutes != null && Seconds != null && Weekly != null)
+                    {
+                        isOk = true;
+                    }
+                    break;
+                case "Mensual":
+                    if (Hours != null && Minutes != null && Seconds != null && Monthly != null)
+                    {
+                        isOk = true;
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            return isOk;
         }
     }
 }
