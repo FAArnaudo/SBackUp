@@ -18,9 +18,9 @@ namespace SBackUp.Views
     /// <summary>
     /// Lógica de interacción para ControlPanelView.xaml
     /// </summary>
-    public partial class ControlPanelView : Window
+    public partial class TaskManager : Window
     {
-        public ControlPanelView()
+        public TaskManager()
         {
             InitializeComponent();
         }

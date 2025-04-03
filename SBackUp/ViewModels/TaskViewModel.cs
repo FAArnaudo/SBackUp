@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SBackUp.Models;
+using SBackUp.Views;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,6 +15,8 @@ namespace SBackUp.ViewModels
     public class TaskViewModel : ViewModelBase
     {
         // Fields
+        private TaskManager taskManager;
+
         private string taskName = "";
         private string source = "";
         private string destiny = "";
@@ -25,6 +29,8 @@ namespace SBackUp.ViewModels
         private string minutes = "00";
         private string seconds = "00";
         private bool isHourEnable = false;
+
+        private ITaskRepository taskRepository;
 
         // Properties
         public ObservableCollection<string> Mode { get; set; }
@@ -146,8 +152,10 @@ namespace SBackUp.ViewModels
         public ICommand CreateCommand { get; }
 
         // Constructor
-        public TaskViewModel()
+        public TaskViewModel(TaskManager taskManager)
         {
+            this.taskManager = taskManager;
+
             Mode = new ObservableCollection<string> { "Manual", "Diario", "Semanal", "Mensual" };
 
             DaysOfWeek = new ObservableCollection<string> { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" };

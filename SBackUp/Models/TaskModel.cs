@@ -16,6 +16,8 @@ namespace SBackUp.Models
         public string Hours { get; set; }
         public string Minutes { get; set; }
         public string Seconds { get; set; }
+        public string DayOfWeek { get; set; }
+        public string DayOfMonth { get; set; }
         public TaskModel() { }
     }
 }
