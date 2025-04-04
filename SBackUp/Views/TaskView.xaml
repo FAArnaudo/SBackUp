@@ -9,8 +9,16 @@
         Title="Back Up" Width="600" Height="560">
 
     <Window.DataContext>
-        <viewModel:TaskViewModel></viewModel:TaskViewModel>
+        <local:TaskViewModel></local:TaskViewModel>
     </Window.DataContext>
+
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"></BooleanToVisibilityConverter>
+    </Window.Resources>
+
+    <Window.Visibility>
+        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"></Binding>
+    </Window.Visibility>
 
     <Grid x:Name="GTask" Background="#1d537e">
         <StackPanel Margin="5" Background="#3A6EA5">
@@ -78,13 +86,18 @@
                         <StackPanel Orientation="Horizontal"
                                     IsEnabled="{Binding IsHourEnable}">
                             <TextBox Height="25" Width="30"
-                                     Text="{Binding Hours, UpdateSourceTrigger=PropertyChanged}"/>
+                                     Text="{Binding Hours, UpdateSourceTrigger=PropertyChanged}"
+                                     PreviewTextInput="TextBox_PreviewTextInput"
+                                     DataObject.Pasting="TextBox_Pasting"
+                                     MaxLength="2"/>
                             <TextBlock Text=":" VerticalAlignment="Center" FontSize="14" Foreground="White"/>
                             <TextBox Height="25" Width="30"
-                                     Text="{Binding Minutes, UpdateSourceTrigger=PropertyChanged}"/>
+                                     Text="{Binding Minutes, UpdateSourceTrigger=PropertyChanged}"
+                                     MaxLength="2"/>
                             <TextBlock Text=":" VerticalAlignment="Center" FontSize="14" Foreground="White"/>
                             <TextBox Height="25" Width="30"
-                                     Text="{Binding Seconds, UpdateSourceTrigger=PropertyChanged}"/>
+                                     Text="{Binding Seconds, UpdateSourceTrigger=PropertyChanged}"
+                                     MaxLength="2"/>
                         </StackPanel>
                     </DockPanel>
 

@@ -15,8 +15,7 @@ namespace SBackUp.ViewModels
     public class TaskViewModel : ViewModelBase
     {
         // Fields
-        private TaskManager taskManager;
-
+        private bool isViewVisible = true;
         private string taskName = "";
         private string source = "";
         private string destiny = "";
@@ -30,9 +29,16 @@ namespace SBackUp.ViewModels
         private string seconds = "00";
         private bool isHourEnable = false;
 
-        private ITaskRepository taskRepository;
-
         // Properties
+        public bool IsViewVisible
+        {
+            get => isViewVisible;
+            set
+            {
+                isViewVisible = value;
+                OnPropertyChanged(nameof(IsViewVisible));
+            }
+        }
         public ObservableCollection<string> Mode { get; set; }
         public ObservableCollection<string> DaysOfWeek { get; set; }
         public ObservableCollection<string> DaysOfMonth { get; set; }
@@ -152,10 +158,8 @@ namespace SBackUp.ViewModels
         public ICommand CreateCommand { get; }
 
         // Constructor
-        public TaskViewModel(TaskManager taskManager)
+        public TaskViewModel()
         {
-            this.taskManager = taskManager;
-
             Mode = new ObservableCollection<string> { "Manual", "Diario", "Semanal", "Mensual" };
 
             DaysOfWeek = new ObservableCollection<string> { "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado", "Domingo" };
@@ -192,7 +196,22 @@ namespace SBackUp.ViewModels
 
         private void ExecuteCreateCommand(object obj)
         {
-            throw new NotImplementedException();
+            TaskModel taskModel = new TaskModel
+            {
+                TaskName = TaskName,
+                Source = Source,
+                Destiny = Destiny,
+                TaskPerioricity = TaskPerioricity,
+                Hours = Hours,
+                Minutes = Minutes,
+                Seconds = Seconds,
+                DayOfWeek = Weekly,
+                DayOfMonth = Monthly
+            };
+
+            TaskContainer.Instance.AddTask(taskModel);
+
+            IsViewVisible = false;
         }
 
         private void ExecuteSearchSourceCommand(object obj)

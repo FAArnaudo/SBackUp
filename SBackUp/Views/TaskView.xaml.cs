@@ -23,5 +23,17 @@ namespace SBackUp.Views
         {
             InitializeComponent();
         }
+
+        private void TextBox_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            // Solo permite números del 0 al 9
+            e.Handled = !e.Text.All(char.IsDigit);
+        }
+
+        private void TextBox_Pasting(object sender, DataObjectPastingEventArgs e)
+        {
+            // Bloquear siempre el pegado
+            e.CancelCommand();
+        }
     }
 }
