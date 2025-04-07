@@ -64,9 +64,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\ITaskRepository.cs" />
     <Compile Include="Models\TaskManager.cs" />
     <Compile Include="Models\TaskModel.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />
+    <Compile Include="Repositories\TaskRepository.cs" />
     <Compile Include="TaskContainer.cs" />
     <Compile Include="ViewModels\TaskViewModel.cs" />
     <Compile Include="Views\TaskView.xaml.cs">
